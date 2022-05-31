@@ -1,6 +1,6 @@
-pandas==1.2.4
+matplotlib==3.3.4
 streamlit==1.2.0
+numpy==1.20.1
+pandas==1.2.4
 base58==2.1.1
-matplotlib @ file:///opt/concourse/worker/volumes/live/41e8cd50-031f-4dda-5787-dd3c4f4e0f08/volume/matplotlib-suite_1613407855571/work
-numpy @ file:///opt/concourse/worker/volumes/live/84716fc3-63c0-4ad6-5a23-37f5ad6b3bfa/volume/numpy_and_numpy_base_1618497240837/work
-lxml @ file:///opt/concourse/worker/volumes/live/42fc56a4-88b4-4605-6037-9605f4e5eeeb/volume/lxml_1616443240194/work
+lxml==4.6.3
