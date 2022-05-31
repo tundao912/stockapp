@@ -3,7 +3,6 @@ import streamlit as st
 import pandas as pd
 import datetime
 from name import companyinfo
-import talib
 import matplotlib.pyplot as plt
 from selenium import webdriver
 import plotly.figure_factory as ff
@@ -37,20 +36,20 @@ passDays = datetime.timedelta(nbDays)
 start_date = st.sidebar.date_input("Start date", today - passDays)
 end_date = st.sidebar.date_input("End date", today)
 
-def get_indicators(data):
-    # Get MACD
-    data["macd"], data["macd_signal"], data["macd_hist"] = talib.MACD(data['Close'] / 1000)
+# def get_indicators(data):
+#     # Get MACD
+#     data["macd"], data["macd_signal"], data["macd_hist"] = talib.MACD(data['Close'] / 1000)
 
-    # Get MA20 and MA50
-    data["ma20"] = talib.MA(data["Close"] / 1000, timeperiod=20)
-    data["ma50"] = talib.MA(data["Close"] / 1000, timeperiod=50)
+#     # Get MA20 and MA50
+#     data["ma20"] = talib.MA(data["Close"] / 1000, timeperiod=20)
+#     data["ma50"] = talib.MA(data["Close"] / 1000, timeperiod=50)
 
-    # Get RSI
-    data["rsi"] = talib.RSI(data["Close"] / 1000)
+#     # Get RSI
+#     data["rsi"] = talib.RSI(data["Close"] / 1000)
     
-     # Get A/D Line
-    data["ad"] = talib.AD(data["High"] / 1000, data["Low"] / 1000, data["Close"] / 1000, data["Volume"] / 1000000)
-    return data
+#      # Get A/D Line
+#     data["ad"] = talib.AD(data["High"] / 1000, data["Low"] / 1000, data["Close"] / 1000, data["Volume"] / 1000000)
+#     return data
 def plot_chart(data, n):
     # Filter number of observations to plot
     data = data.iloc[-n:]
