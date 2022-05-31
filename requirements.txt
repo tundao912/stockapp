@@ -1,3 +1,6 @@
-streamlit==0.71.0
-pandas==1.1.3
 cufflinks==0.17.3
+matplotlib @ file:///opt/concourse/worker/volumes/live/41e8cd50-031f-4dda-5787-dd3c4f4e0f08/volume/matplotlib-suite_1613407855571/work
+numpy @ file:///opt/concourse/worker/volumes/live/84716fc3-63c0-4ad6-5a23-37f5ad6b3bfa/volume/numpy_and_numpy_base_1618497240837/work
+path @ file:///opt/concourse/worker/volumes/live/6493576b-552d-426b-432c-5e0fafcd8a43/volume/path_1614022213143/work
+selenium==4.1.0
+streamlit==1.2.0
