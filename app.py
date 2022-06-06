@@ -99,7 +99,7 @@ def load_data2(ticker, start, end):
     fileNameOrigin = '{}-{}.txt'.format(ticker, str(end).replace('-',''))
     filePathOrigin = '{}{}'.format(downloads_dir,fileNameOrigin)
     text = 'Download [ticker]({url})'.format(ticker=ticker,url=url)
-    st.markdown(link,unsafe_allow_html=True)
+    st.markdown(text,unsafe_allow_html=True)
 
 
     uploaded_file = st.file_uploader("Choose a file")
