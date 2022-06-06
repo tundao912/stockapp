@@ -171,7 +171,7 @@ try:
     
     st.write('---')
 except Exception as e:
-    print(e)
+    st.text(e)
     st.header('**NO data**')    
     st.write('---')
 
