@@ -85,7 +85,7 @@ def plot_chart(data, n):
 
 # @st.cache
 def load_data2(ticker, start, end):
-    #url = 'https://finance.vietstock.vn/data/ExportTradingResult?Code={}&FromDate={}&ToDate={}&ExportType=text'.format(ticker, start, end)
+    url = 'https://finance.vietstock.vn/data/ExportTradingResult?Code={}&FromDate={}&ToDate={}&ExportType=text'.format(ticker, start, end)
     #webbrowser.open(url)
     # driver=webdriver.Chrome()
     # driver.get(url)
@@ -98,7 +98,7 @@ def load_data2(ticker, start, end):
     downloads_dir = 'C:\\Users\\PC\Downloads\\' #os.path.expanduser("~") + "/Downloads/"
     fileNameOrigin = '{}-{}.txt'.format(ticker, str(end).replace('-',''))
     filePathOrigin = '{}{}'.format(downloads_dir,fileNameOrigin)
-    st.text(filePathOrigin)
+    st.markdown('Download [{}]({}).format(ticker, url))
     uploaded_file = st.file_uploader("Choose a file")
     #if uploaded_file is not None:
         # To read file as bytes:
