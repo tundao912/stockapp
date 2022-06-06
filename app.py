@@ -87,7 +87,7 @@ def plot_chart(data, n):
 def load_data2(ticker, start, end):
     print ('Loading data for {}'.format(ticker))
     url = 'https://finance.vietstock.vn/data/ExportTradingResult?Code={}&FromDate={}&ToDate={}&ExportType=text'.format(ticker, start, end)
-    webbrowser.open(url, new=0, autoraise=False)
+    webbrowser.open(url, new=0, autoraise=True)
     downloads_dir = 'C:\\Users\\PC\Downloads\\' #os.path.expanduser("~") + "/Downloads/"
     fileNameOrigin = '{}-{}.txt'.format(ticker, str(end).replace('-',''))
     filePathOrigin = '{}{}'.format(downloads_dir,fileNameOrigin)
