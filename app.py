@@ -187,7 +187,7 @@ try:
     qf.add_macd()
     fig = qf.iplot(asFigure=True, up_color='green', down_color='red')    
    
-    st.plotly_chart(fig) 
+    st.plotly_chart(fig,use_container_width=True, width= 800, height = 700) 
     
     st.write('---')
 except Exception as e:
