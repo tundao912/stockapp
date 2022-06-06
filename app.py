@@ -93,7 +93,7 @@ def load_data2(ticker, start, end):
     filePathOrigin = '{}{}'.format(downloads_dir,fileNameOrigin)
     st.text('downloads_dir {}'.format(downloads_dir))
     st.text('filePathOrigin {}'.format(filePathOrigin))
-
+    st.text('url {}'.format(url))
     while not os.path.exists (filePathOrigin):   
         time.sleep(1)
     if os.path.isfile (filePathOrigin):     
