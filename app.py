@@ -111,7 +111,7 @@ def load_data2(ticker, start, end):
 	tickerDf['close'] = tickerDf['close'] / 1000
 	tickerDf['volume'] = tickerDf['volume'] / 10000
 	tickerDf.set_index('date', inplace=True)        
-        return tickerDf     
+    return tickerDf     
 tickerSymbol= st.sidebar.selectbox('Ticker', companyinfo.keys(),index=list(companyinfo.keys()).index('ORS')) # Select ticker symbol
 tickerName = st.sidebar.text(companyinfo.get(tickerSymbol))
 
