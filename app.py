@@ -9,6 +9,7 @@ import plotly.figure_factory as ff
 import cufflinks as cf
 import os.path
 import time
+import webbrowser
 
 cf.set_config_file(theme='pearl',sharing='public',offline=True, world_readable=True)
 # dimensions=(900,1500)
@@ -85,26 +86,24 @@ def plot_chart(data, n):
 # @st.cache
 def load_data2(ticker, start, end):
     print ('Loading data for {}'.format(ticker))
-    url = 'https://finance.vietstock.vn/data/ExportTradingResult?Code={}&FromDate={}&ToDate={}&ExportType=text'.format(ticker, start, end)    
-    # driver=webdriver.Safari()
-    # driver.get(url)
-    text='check out this [link]({link})'.format(link=url)
-    st.markdown(text,unsafe_allow_html=True)
-    # fileNameOrigin = '{}-{}.txt'.format(ticker, str(end).replace('-',''))
-    # filePathOrigin = '/Users/tunguyen/Downloads/{}'.format(fileNameOrigin)
-    # while not os.path.exists (filePathOrigin):   
-    #     time.sleep(1)
-    # if os.path.isfile (filePathOrigin):     
-    #     tickerDf = pd.read_csv(filePathOrigin, usecols=[0,2,3,4,5,6])    
-    #     tickerDf.columns = ['date', 'open', 'high', 'low', 'close', 'volume']
-    #     tickerDf['date'] = pd.to_datetime(tickerDf['date'], format='%m/%d/%Y')
-    #     tickerDf['open'] = tickerDf['open'] / 1000
-    #     tickerDf['high'] = tickerDf['high'] /1000
-    #     tickerDf['low'] = tickerDf['low'] /1000
-    #     tickerDf['close'] = tickerDf['close'] / 1000
-    #     tickerDf['volume'] = tickerDf['volume'] / 10000
-    #     tickerDf.set_index('date', inplace=True)        
-    #     return tickerDf     
+    url = 'https://finance.vietstock.vn/data/ExportTradingResult?Code={}&FromDate={}&ToDate={}&ExportType=text'.format(ticker, start, end)
+    webbrowser.open(url, new=0, autoraise=False)
+    downloads_dir = os.path.expanduser("~") + "/Downloads/"
+    fileNameOrigin = '{}-{}.txt'.format(ticker, str(end).replace('-',''))
+    filePathOrigin = '{}{}'.format(downloads_dir,fileNameOrigin)
+    while not os.path.exists (filePathOrigin):   
+        time.sleep(1)
+    if os.path.isfile (filePathOrigin):     
+        tickerDf = pd.read_csv(filePathOrigin, usecols=[0,2,3,4,5,6])    
+        tickerDf.columns = ['date', 'open', 'high', 'low', 'close', 'volume']
+        tickerDf['date'] = pd.to_datetime(tickerDf['date'], format='%m/%d/%Y')
+        tickerDf['open'] = tickerDf['open'] / 1000
+        tickerDf['high'] = tickerDf['high'] /1000
+        tickerDf['low'] = tickerDf['low'] /1000
+        tickerDf['close'] = tickerDf['close'] / 1000
+        tickerDf['volume'] = tickerDf['volume'] / 10000
+        tickerDf.set_index('date', inplace=True)        
+        return tickerDf     
 tickerSymbol= st.sidebar.selectbox('Ticker', companyinfo.keys(),index=list(companyinfo.keys()).index('ORS')) # Select ticker symbol
 tickerName = st.sidebar.text(companyinfo.get(tickerSymbol))
 
@@ -129,8 +128,6 @@ for index, key in enumerate(st.session_state.key, start=1):
         if button_start:
             tickerSymbol = key
 try:  
-    print ('Loading2 data for {}'.format(tickerSymbol))
-
     tickerDf = load_data2(tickerSymbol, start_date, end_date)
     tickerDf = tickerDf.loc[(tickerDf.index >= pd.to_datetime(start_date)) & (tickerDf.index <= pd.to_datetime(end_date))]
     st.text('Data valid only until {}'.format(tickerDf.index[-1]))
