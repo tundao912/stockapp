@@ -80,7 +80,7 @@ def plot_chart(data, n):
     # ax_ad.plot(data.index, data["ad"], label="ad")
 
     
-    st.plotly_chart(fig, use_container_width=True, width= 800, height = 400)
+    st.plotly_chart(fig, use_container_width=True, width= 800, height = 700)
     st.bar_chart(data["Volume"])
 
 # @st.cache
