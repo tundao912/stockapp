@@ -88,12 +88,9 @@ def load_data2(ticker, start, end):
     print ('Loading data for {}'.format(ticker))
     url = 'https://finance.vietstock.vn/data/ExportTradingResult?Code={}&FromDate={}&ToDate={}&ExportType=text'.format(ticker, start, end)
     webbrowser.open(url, new=0, autoraise=False)
-    downloads_dir = os.path.expanduser("~") + "/Downloads/"
+    downloads_dir = 'C:\\Users\\PC\Downloads\\' #os.path.expanduser("~") + "/Downloads/"
     fileNameOrigin = '{}-{}.txt'.format(ticker, str(end).replace('-',''))
     filePathOrigin = '{}{}'.format(downloads_dir,fileNameOrigin)
-    st.text('downloads_dir {}'.format(downloads_dir))
-    st.text('filePathOrigin {}'.format(filePathOrigin))
-    st.text('url {}'.format(url))
     while not os.path.exists (filePathOrigin):   
         time.sleep(1)
     if os.path.isfile (filePathOrigin):     
