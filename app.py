@@ -98,7 +98,7 @@ def load_data2(ticker, start, end):
     downloads_dir = 'C:\\Users\\PC\Downloads\\' #os.path.expanduser("~") + "/Downloads/"
     fileNameOrigin = '{}-{}.txt'.format(ticker, str(end).replace('-',''))
     filePathOrigin = '{}{}'.format(downloads_dir,fileNameOrigin)
-    text = 'Download [ticker]({url})'.format(ticker=ticker,url=url)
+    text = 'Download [{ticker}]({url})'.format(ticker=ticker,url=url)
     st.markdown(text,unsafe_allow_html=True)
 
 
