@@ -101,16 +101,16 @@ def load_data2(ticker, start, end):
     st.text(filePathOrigin)
     # while not os.path.exists (filePathOrigin):   
     #     time.sleep(1)
-    if os.path.isfile (filePathOrigin):     
-        tickerDf = pd.read_csv(filePathOrigin, usecols=[0,2,3,4,5,6])    
-        tickerDf.columns = ['date', 'open', 'high', 'low', 'close', 'volume']
-        tickerDf['date'] = pd.to_datetime(tickerDf['date'], format='%m/%d/%Y')
-        tickerDf['open'] = tickerDf['open'] / 1000
-        tickerDf['high'] = tickerDf['high'] /1000
-        tickerDf['low'] = tickerDf['low'] /1000
-        tickerDf['close'] = tickerDf['close'] / 1000
-        tickerDf['volume'] = tickerDf['volume'] / 10000
-        tickerDf.set_index('date', inplace=True)        
+    #if os.path.isfile (filePathOrigin):     
+	tickerDf = pd.read_csv(filePathOrigin, usecols=[0,2,3,4,5,6])    
+	tickerDf.columns = ['date', 'open', 'high', 'low', 'close', 'volume']
+	tickerDf['date'] = pd.to_datetime(tickerDf['date'], format='%m/%d/%Y')
+	tickerDf['open'] = tickerDf['open'] / 1000
+	tickerDf['high'] = tickerDf['high'] /1000
+	tickerDf['low'] = tickerDf['low'] /1000
+	tickerDf['close'] = tickerDf['close'] / 1000
+	tickerDf['volume'] = tickerDf['volume'] / 10000
+	tickerDf.set_index('date', inplace=True)        
         return tickerDf     
 tickerSymbol= st.sidebar.selectbox('Ticker', companyinfo.keys(),index=list(companyinfo.keys()).index('ORS')) # Select ticker symbol
 tickerName = st.sidebar.text(companyinfo.get(tickerSymbol))
