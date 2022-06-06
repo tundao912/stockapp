@@ -98,9 +98,10 @@ def load_data2(ticker, start, end):
     downloads_dir = 'C:\\Users\\PC\Downloads\\' #os.path.expanduser("~") + "/Downloads/"
     fileNameOrigin = '{}-{}.txt'.format(ticker, str(end).replace('-',''))
     filePathOrigin = '{}{}'.format(downloads_dir,fileNameOrigin)
-    st.markdown('''
-    Download [{}]({}).format(ticker,url)
-    ''')
+    text = 'Download [ticker]({url})'.format(ticker=ticker,url=url)
+    st.markdown(link,unsafe_allow_html=True)
+
+
     uploaded_file = st.file_uploader("Choose a file")
     #if uploaded_file is not None:
         # To read file as bytes:
