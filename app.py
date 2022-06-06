@@ -85,8 +85,8 @@ def plot_chart(data, n):
 
 # @st.cache
 def load_data2(ticker, start, end):
-    url = 'https://finance.vietstock.vn/data/ExportTradingResult?Code={}&FromDate={}&ToDate={}&ExportType=text'.format(ticker, start, end)
-    webbrowser.open(url)
+    #url = 'https://finance.vietstock.vn/data/ExportTradingResult?Code={}&FromDate={}&ToDate={}&ExportType=text'.format(ticker, start, end)
+    #webbrowser.open(url)
     # driver=webdriver.Chrome()
     # driver.get(url)
 
