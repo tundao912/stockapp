@@ -99,10 +99,27 @@ def load_data2(ticker, start, end):
     fileNameOrigin = '{}-{}.txt'.format(ticker, str(end).replace('-',''))
     filePathOrigin = '{}{}'.format(downloads_dir,fileNameOrigin)
     st.text(filePathOrigin)
+    uploaded_file = st.file_uploader("Choose a file")
+    if uploaded_file is not None:
+        # To read file as bytes:
+        bytes_data = uploaded_file.getvalue()
+        st.write(bytes_data)
+
+        # To convert to a string based IO:
+        stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+        st.write(stringio)
+
+     # To read file as string:
+     #string_data = stringio.read()
+     #st.write(string_data)
+
+     # Can be used wherever a "file-like" object is accepted:
+        dataframe = pd.read_csv(uploaded_file)
+        st.write(dataframe)
     # while not os.path.exists (filePathOrigin):   
     #     time.sleep(1)
     #if os.path.isfile (filePathOrigin):     
-    tickerDf = pd.read_csv(filePathOrigin, usecols=[0,2,3,4,5,6])    
+    tickerDf = pd.read_csv(uploaded_file, usecols=[0,2,3,4,5,6])    
     tickerDf.columns = ['date', 'open', 'high', 'low', 'close', 'volume']
     tickerDf['date'] = pd.to_datetime(tickerDf['date'], format='%m/%d/%Y')
     tickerDf['open'] = tickerDf['open'] / 1000
