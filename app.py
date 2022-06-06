@@ -133,7 +133,7 @@ try:
     st.text('Data valid only until {}'.format(tickerDf.index[-1]))
     # # # Ticker data
     st.header('**Ticker data**')
-    st.write(tickerDf.tail(30))    
+    st.write(tickerDf.tail(121))    
     st.header('**Charts**')
     qf=cf.QuantFig(tickerDf, title='First Quant Figure',legend='top')
     # Adding a resistance level
