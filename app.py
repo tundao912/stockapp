@@ -98,6 +98,7 @@ def load_data2(ticker, start, end):
     downloads_dir = 'C:\\Users\\PC\Downloads\\' #os.path.expanduser("~") + "/Downloads/"
     fileNameOrigin = '{}-{}.txt'.format(ticker, str(end).replace('-',''))
     filePathOrigin = '{}{}'.format(downloads_dir,fileNameOrigin)
+    st.text(filePathOrigin)
     # while not os.path.exists (filePathOrigin):   
     #     time.sleep(1)
     if os.path.isfile (filePathOrigin):     
