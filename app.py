@@ -98,8 +98,8 @@ def load_data2(ticker, start, end):
     downloads_dir = 'C:\\Users\\PC\Downloads\\' #os.path.expanduser("~") + "/Downloads/"
     fileNameOrigin = '{}-{}.txt'.format(ticker, str(end).replace('-',''))
     filePathOrigin = '{}{}'.format(downloads_dir,fileNameOrigin)
-    while not os.path.exists (filePathOrigin):   
-        time.sleep(1)
+    # while not os.path.exists (filePathOrigin):   
+    #     time.sleep(1)
     if os.path.isfile (filePathOrigin):     
         tickerDf = pd.read_csv(filePathOrigin, usecols=[0,2,3,4,5,6])    
         tickerDf.columns = ['date', 'open', 'high', 'low', 'close', 'volume']
