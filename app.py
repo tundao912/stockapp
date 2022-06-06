@@ -87,8 +87,13 @@ def plot_chart(data, n):
 def load_data2(ticker, start, end):
     url = 'https://finance.vietstock.vn/data/ExportTradingResult?Code={}&FromDate={}&ToDate={}&ExportType=text'.format(ticker, start, end)
     #webbrowser.open(url, new=1, autoraise=True)
-    driver=webdriver.Chrome()
-    driver.get(url)
+    # driver=webdriver.Chrome()
+    # driver.get(url)
+
+    webbrowser.register('chrome',
+	None,
+	webbrowser.BackgroundBrowser("C://Program Files//Google//Chrome//Application//chrome.exe"))
+    webbrowser.get('chrome').open(url)
 
     downloads_dir = 'C:\\Users\\PC\Downloads\\' #os.path.expanduser("~") + "/Downloads/"
     fileNameOrigin = '{}-{}.txt'.format(ticker, str(end).replace('-',''))
